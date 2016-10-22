@@ -15,5 +15,5 @@ git clone https://github.com/eskin/dotfiles.git ~/.dotfiles
 
 And inside vim:
 ```vim
-:PluginInstall
+:PlugInstall
 ```
