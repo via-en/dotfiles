@@ -5,26 +5,35 @@ set nocompatible
 " ------------------------------------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'mbbill/undotree'
-Plug 'mhinz/vim-startify'
-Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer' }
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
-Plug 'johnsyweb/vim-makeshift'
-Plug 'a.vim'
-Plug 'jeaye/color_coded', { 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang' }
-Plug 'jiangmiao/auto-pairs'
-Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-Plug 'matze/vim-move'
-Plug 'eskin/tabline.vim'
-Plug 'eskin/cake16'
+" Look and feel
+Plug 'mhinz/vim-startify'               " Fancy start screen
+Plug 'vim-airline/vim-airline'          " Status line
+Plug 'vim-airline/vim-airline-themes'   " Themes for airline
+Plug 'eskin/tabline.vim'                " My tabline
+Plug 'eskin/cake16'                     " My color scheme
+
+" Git
+Plug 'tpope/vim-fugitive'               " Git client
+Plug 'airblade/vim-gitgutter'           " Shows a git diff in the gutter (sign column) and stages/undoes hunks
+
+" Gui elements
+Plug 'mbbill/undotree'                  " Undo history visualizer
+Plug 'scrooloose/nerdtree'              " A tree explorer plugin
+
+" C++ programming
+Plug 'valloric/youcompleteme',  { 'do': './install.py --clang-completer' }
+Plug 'jeaye/color_coded',       { 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang' }
+Plug 'ervandew/supertab'                " For youcompleteme
+Plug 'johnsyweb/vim-makeshift'          " Plugin for detecting your build system
+Plug 'a.vim'                            " Swtich between source files and header files quickly
+
+" Other languages
+Plug 'sirver/ultisnips'                 " Ultimate solution for snippets
+Plug 'honza/vim-snippets'               " Snippets files for various programming languages
+Plug 'sheerun/vim-polyglot'             " A collection of language packs
+Plug 'jiangmiao/auto-pairs'             " Insert or delete brackets, parens, quotes in pair
+Plug 'tomtom/tcomment_vim'              " File-type sensible toggle comments
+Plug 'matze/vim-move'                   " Plugin to move lines and selections up and down
 call plug#end()
 
 " Disable some standard plugins
@@ -42,6 +51,8 @@ let g:loaded_zipPlugin = 1
 " ------------------------------------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------------------------------------
+
+let g:startify_session_dir = '~/.vim/files/session'
 
 " Disable color_coded in diff mode
 let g:color_coded_enabled = 1

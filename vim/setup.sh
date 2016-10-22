@@ -12,6 +12,7 @@ mkdir ~/.vim/files
 mkdir ~/.vim/files/info
 mkdir ~/.vim/files/swap
 mkdir ~/.vim/files/undo
+mkdir ~/.vim/files/session
 
 ln -sfv ~/.dotfiles/vim/.vimrc ~/.vimrc
 ln -sfv ~/.dotfiles/vim/.vim/.ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
