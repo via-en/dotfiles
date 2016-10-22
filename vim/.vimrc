@@ -76,7 +76,6 @@ let g:airline_right_alt_sep = ''
 let g:airline_skip_empty_sections = 1
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_python_binary_path = 'python3'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_enable_diagnostic_signs = 0
 
