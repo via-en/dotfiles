@@ -24,7 +24,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'matze/vim-move'
 Plug 'eskin/tabline.vim'
-" Plug 'eskin/cake16'
+Plug 'eskin/cake16'
 call plug#end()
 
 " Disable some standard plugins
@@ -90,83 +90,81 @@ let g:move_key_modifier = 'C' " matze/vim-move
 " general settings
 " ------------------------------------------------------------------------------------------------------------
 
-filetype plugin indent on   " Load plugins according to detected filetype
-syntax enable               " Enable syntax highlighting
-set encoding    =utf-8      " The encoding diaplayed
-set fileencoding=utf-8      " The encoding  written
+filetype plugin indent on               " Load plugins according to detected filetype
+syntax enable                           " Enable syntax highlighting
+set encoding    =utf-8                  " The encoding diaplayed
+set fileencoding=utf-8                  " The encoding  written
 
-set autoindent              " Indent according to previous line
-set smartindent             " Отступ при начале нового блока
-set backspace   =indent,eol,start   " Make backspace work as you would expect
+set autoindent                          " Indent according to previous line
+set smartindent                         " Отступ при начале нового блока
+set backspace   =indent,eol,start       " Make backspace work as you would expect
 set smarttab
-set expandtab               " Use spaces instead of tabs
-set softtabstop =4          " Tab key indents by 4 spaces
-set shiftwidth  =4          " >> indents by 4 spaces
-set shiftround              " >> indents to next multiple of 'shiftwidth'
+set expandtab                           " Use spaces instead of tabs
+set softtabstop =4                      " Tab key indents by 4 spaces
+set shiftwidth  =4                      " >> indents by 4 spaces
+set shiftround                          " >> indents to next multiple of 'shiftwidth'
 
-set hidden                  " Switch between buffers without having to save first
-set laststatus  =2          " Always show statusline
-set display     =lastline   " Show as much as possible of the last line
-set wildmenu                " Tab menu on command line
+set hidden                              " Switch between buffers without having to save first
+set laststatus  =2                      " Always show statusline
+set display     =lastline               " Show as much as possible of the last line
+set wildmenu                            " Tab menu on command line
 
-set nrformats  -=octal      " disable octal number format
+set nrformats  -=octal                  " Disable octal number format
 
-set showcmd                 " Show already typed keys when more are expected
-set formatoptions-=t        " Disable auto-wrapping
+set showcmd                             " Show already typed keys when more are expected
+set formatoptions-=t                    " Disable auto-wrapping
 
-set incsearch               " Highlight while searching with / or ?
-set ignorecase              " case insensivity search
-set hlsearch                " Keep matches highlighted
-set complete   -=i          " disable scanning included files
-set complete   -=t          " disable searching tags
-set wrapscan                " Searches wrap around end-of-file
-cnoremap <c-n>  <down>      " Saner command-line history
-cnoremap <c-p>  <up>        " Saner command-line history
+set incsearch                           " Highlight while searching with / or ?
+set ignorecase                          " case insensivity search
+set hlsearch                            " Keep matches highlighted
+set complete   -=i                      " disable scanning included files
+set complete   -=t                      " disable searching tags
+set wrapscan                            " Searches wrap around end-of-file
 
-" set clipboard   =unnamed    " Use system clipboard
+" set clipboard   =unnamed                " Use system clipboard
 
-set ttyfast                 " Faster redrawing
-set lazyredraw              " Only redraw when necessary
-set synmaxcol   =200        " Only highlight the first 200 columns
+set ttyfast                             " Faster redrawing
+set lazyredraw                          " Only redraw when necessary
+set synmaxcol   =200                    " Only highlight the first 200 columns
 
-set splitbelow              " Open new windows below the current window
-set splitright              " Open new windows right of the current window
-"set winwidth    =999        " Запрещаем вертикальное разделение
+set splitbelow                          " Open new windows below the current window
+set splitright                          " Open new windows right of the current window
+"set winwidth    =999                   " Запрещаем вертикальное разделение
 
-set number                  " Show line numbers
+set number                              " Show line numbers
 " set foldcolumn  =1
 
-augroup cursorline          " Highlight current line only on active window
+augroup cursorline                      " Highlight current line only on active window
   au!
   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
   au WinLeave * setlocal nocursorline nocursorcolumn
 augroup END
 
-set report      =0          " Always report changed lines
-set history     =1000       " Store lots of :cmdline history
+set report      =0                      " Always report changed lines
+set history     =1000                   " Store lots of :cmdline history
 
-set noerrorbells            " Disable beep
-set novisualbell            " Disable beep
-set t_vb=                   " Disable beep
-set visualbell              " Disable beep
+set noerrorbells                        " Disable beep
+set novisualbell                        " Disable beep
+set t_vb=                               " Disable beep
+set visualbell                          " Disable beep
 
-set scrolloff   =5          " Start scrolling when we're 8 lines away from margins
+set scrolloff   =5                      " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll  =1
 
-set autoread                " Reload files changed outside vim
-autocmd BufWritePre * :%s/\s\+$//e   " Trim trailing whitespace on save
+set autoread                            " Reload files changed outside vim
+autocmd BufWritePre * :%s/\s\+$//e      " Trim trailing whitespace on save
 
-set gcr         =a:blinkon0 " Disable cursor blink
+set gcr         =a:blinkon0             " Disable cursor blink
 
-set list                    " Show non-printable characters
+set list                                " Show non-printable characters
 if has('multi_byte') && &encoding ==# 'utf-8'
   let &listchars = 'tab:▸ ,extends:❯,precedes:❮,nbsp:±'
 else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.'
 endif
 
-set completeopt-=preview  "disable preview window popping up
+set completeopt-=preview                " disable preview window popping up
 
 " Put all temporary files under the same directory
 set nobackup
@@ -181,7 +179,7 @@ set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 " color scheme settings
 " ------------------------------------------------------------------------------------------------------------
 
-" set t_Co=256  " make use of 256 terminal colors
+" set t_Co=256                            " make use of 256 terminal colors
 " set background=light
 " set background=dark
 
@@ -198,7 +196,7 @@ let macvim_skip_colorscheme=1
 " ------------------------------------------------------------------------------------------------------------
 
 noremap Q <Nop>
-noremap q <Nop> " Disable macros, temporary
+noremap q <Nop>                         " Disable macros, temporary
 
 " comments
 nmap <leader>c gcc
@@ -217,6 +215,9 @@ nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
 map <leader><leader> :let @/=""<CR>
+
+cnoremap <c-n>  <down>                  " Saner command-line history
+cnoremap <c-p>  <up>                    " Saner command-line history
 
 " xnoremap p "_dP
 
