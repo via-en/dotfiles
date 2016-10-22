@@ -30,6 +30,7 @@ Plug 'a.vim'                            " Swtich between source files and header
 " Other languages
 Plug 'sirver/ultisnips'                 " Ultimate solution for snippets
 Plug 'honza/vim-snippets'               " Snippets files for various programming languages
+Plug 'godlygeek/tabular'                " Text filtering and alignment
 Plug 'sheerun/vim-polyglot'             " A collection of language packs
 Plug 'jiangmiao/auto-pairs'             " Insert or delete brackets, parens, quotes in pair
 Plug 'tomtom/tcomment_vim'              " File-type sensible toggle comments
@@ -107,7 +108,7 @@ set encoding    =utf-8                  " The encoding diaplayed
 set fileencoding=utf-8                  " The encoding  written
 
 set autoindent                          " Indent according to previous line
-set smartindent                         " Отступ при начале нового блока
+" set smartindent                         "Deprecated. Must be off
 set backspace   =indent,eol,start       " Make backspace work as you would expect
 set smarttab
 set expandtab                           " Use spaces instead of tabs
@@ -197,7 +198,6 @@ set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 colorscheme cake16
 let g:airline_theme = 'tomorrow'
 
-
 set guifont     =Roboto\ Mono\ for\ Powerline:h15
 let macvim_skip_colorscheme=1
 
@@ -229,6 +229,15 @@ map <leader><leader> :let @/=""<CR>
 
 cnoremap <c-n>  <down>                  " Saner command-line history
 cnoremap <c-p>  <up>                    " Saner command-line history
+
+if exists(":Tabularize")
+    nmap <leader>a= :Tabularize /=<CR>
+    vmap <leader>a= :Tabularize /=<CR>
+    nmap <leader>a\| :Tabularize /\|<CR>
+    vmap <leader>a\| :Tabularize /\|<CR>
+    nmap <leader>a: :Tabularize /:\zs<CR>
+    vmap <leader>a: :Tabularize /:\zs<CR>
+endif
 
 " xnoremap p "_dP
 
