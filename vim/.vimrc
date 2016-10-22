@@ -11,14 +11,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
-Plug 'valloric/youcompleteme', { 'do': './install.sh --clang-completer' }
+Plug 'valloric/youcompleteme', { 'do': './install.py --clang-completer' }
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'johnsyweb/vim-makeshift'
 Plug 'a.vim'
 " Plug 'terryma/vim-multiple-cursors'
-Plug 'jeaye/color_coded', { 'do': 'cmake . && make && make install && make clean && make clean_clang' }
+Plug 'jeaye/color_coded', {
+            \ 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang'
+            \ }
+" \ 'for': ['c', 'cpp', 'objc', 'objcpp'],
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
@@ -26,7 +29,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'matze/vim-move'
 Plug 'eskin/tabline.vim'
-" Plug 'eskin/cake16'
+Plug 'eskin/cake16'
 
 " Plug 'nigorojr/color_coded-colorschemes'
 " Plug 'scwood/vim-hybrid'
