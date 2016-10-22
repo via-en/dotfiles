@@ -208,6 +208,10 @@ let macvim_skip_colorscheme=1
 noremap Q <Nop>
 noremap q <Nop>                         " Disable macros, temporary
 
+" turbo moving
+nnoremap J   4j
+nnoremap K   4k
+
 " comments
 nmap <leader>c gcc
 vmap <leader>c gc
