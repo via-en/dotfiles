@@ -17,30 +17,14 @@ Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 Plug 'johnsyweb/vim-makeshift'
 Plug 'a.vim'
-" Plug 'terryma/vim-multiple-cursors'
-Plug 'jeaye/color_coded', {
-            \ 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang'
-            \ }
-" \ 'for': ['c', 'cpp', 'objc', 'objcpp'],
+Plug 'jeaye/color_coded', { 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
-" Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'matze/vim-move'
 Plug 'eskin/tabline.vim'
-Plug 'eskin/cake16'
-
-" Plug 'nigorojr/color_coded-colorschemes'
-" Plug 'scwood/vim-hybrid'
-" Plug 'morhetz/gruvbox'
-" Plug 'dracula/vim'
-" Plug 'romainl/Apprentice'
-" Plug 'jacoborus/tender'
-" Plug 'mtglsk/mushroom'
-" Plug 'jordwalke/flatlandia'
-" Plug 'aseom/snowcake16'
-" Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'eskin/cake16'
 call plug#end()
 
 " Disable some standard plugins
@@ -101,10 +85,6 @@ let g:plug_window = 'topleft new | res'
 
 let g:move_key_modifier = 'C' " matze/vim-move
 
-" autocmd vimenter * NERDTree
-" autocmd vimenter * wincmd p
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
 
 " ------------------------------------------------------------------------------------------------------------
 " general settings
@@ -132,6 +112,7 @@ set wildmenu                " Tab menu on command line
 set nrformats  -=octal      " disable octal number format
 
 set showcmd                 " Show already typed keys when more are expected
+set formatoptions-=t        " Disable auto-wrapping
 
 set incsearch               " Highlight while searching with / or ?
 set ignorecase              " case insensivity search
@@ -204,37 +185,11 @@ set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 " set background=light
 " set background=dark
 
-" let g:solarized_visibility = "high"
-" let g:solarized_contrast = "high"
-
-" let g:hybrid_reduced_contrast = 1
-
-" colorscheme hybrid
-" colorscheme gruvbox
-" colorscheme dracula
-" colorscheme apprentice
-" colorscheme tender
-" colorscheme mushroom
-" colorscheme flatlandia
-
-" colorscheme solarizeded
 colorscheme cake16
-" colorscheme snowcake16
-" colorscheme Tomorrow
-
-
-" colorscheme base16-atelier-heath
-
-" let g:airline_theme='solarized'
-" let g:airline_theme='hybridline'
-" let g:airline_theme = 'tender'
-" let g:airline_theme = 'flatlandia'
 let g:airline_theme = 'tomorrow'
 
 
 set guifont     =Roboto\ Mono\ for\ Powerline:h15
-" set guifont     =Roboto\ Mono\ Medium\ for\ Powerline:h15
-
 let macvim_skip_colorscheme=1
 
 
