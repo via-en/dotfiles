@@ -1,4 +1,5 @@
 set nocompatible
+let mapleader="\<space>"
 
 " ------------------------------------------------------------------------------------------------------------
 " plugins
@@ -25,7 +26,7 @@ Plug 'valloric/youcompleteme',  { 'do': './install.py --clang-completer' }
 Plug 'jeaye/color_coded',       { 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang' }
 Plug 'ervandew/supertab'                " For youcompleteme
 Plug 'johnsyweb/vim-makeshift'          " Plugin for detecting your build system
-Plug 'a.vim'                            " Swtich between source files and header files quickly
+Plug 'nacitar/a.vim'                    " Swtich between source files and header files quickly
 
 " Other languages
 Plug 'sirver/ultisnips'                 " Ultimate solution for snippets
@@ -52,6 +53,8 @@ let g:loaded_zipPlugin = 1
 " ------------------------------------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------------------------------------
+
+let g:tcommentMaps = 0
 
 let g:startify_session_dir = '~/.vim/files/session'
 
@@ -185,6 +188,11 @@ set undofile
 set undodir     =$HOME/.vim/files/undo/
 set viminfo     ='100,n$HOME/.vim/files/info/viminfo
 
+" Autoreload .vimrc
+augroup vimrc
+    au!
+    au BufWritePost ~/.vimrc source % | AirlineRefresh
+augroup end
 
 " ------------------------------------------------------------------------------------------------------------
 " color scheme settings
@@ -206,41 +214,54 @@ let macvim_skip_colorscheme=1
 " ------------------------------------------------------------------------------------------------------------
 
 noremap Q <Nop>
-noremap q <Nop>                         " Disable macros, temporary
+noremap q <Nop>
+
+nnoremap <CR> w
+nnoremap <leader><CR> :normal o<CR>
+nnoremap <bs> ^
 
 " turbo moving
-nnoremap J   4j
-nnoremap K   4k
+nnoremap J  4j
+nnoremap K  4k
+nnoremap H  ^
+nnoremap L  $
+
+noremap <leader>, :tabnew ~/.vimrc<CR>
 
 " comments
-nmap <leader>c gcc
-vmap <leader>c gc
+nnoremap <leader>c :TComment<CR>
+vnoremap <leader>c :TComment<CR>
+
+" system clipboard
+noremap <leader>y "+y
+noremap <leader>p "+p
+
+" my "y register
+noremap <leader>Y "yy
+noremap <leader>P "yp
 
 nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 "let g:SuperTabCrMapping = 0
 
-nnoremap <c-n> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
-" Quickly add empty lines. 5[<space> inserts 5 blank lines above the current line
-nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+" clear search history
+nnoremap <leader>/ :let @/=""<CR>
 
-map <leader><leader> :let @/=""<CR>
+" Saner command-line history
+cnoremap <c-j>  <down>
+cnoremap <c-k>  <up>
 
-cnoremap <c-n>  <down>                  " Saner command-line history
-cnoremap <c-p>  <up>                    " Saner command-line history
-
-if exists(":Tabularize")
-    nmap <leader>a= :Tabularize /=<CR>
-    vmap <leader>a= :Tabularize /=<CR>
-    nmap <leader>a\| :Tabularize /\|<CR>
-    vmap <leader>a\| :Tabularize /\|<CR>
-    nmap <leader>a: :Tabularize /:\zs<CR>
-    vmap <leader>a: :Tabularize /:\zs<CR>
-endif
+" if exists(":Tabularize")
+"     nmap <leader>a= :Tabularize /=<CR>
+"     vmap <leader>a= :Tabularize /=<CR>
+"     nmap <leader>a\| :Tabularize /\|<CR>
+"     vmap <leader>a\| :Tabularize /\|<CR>
+"     nmap <leader>a: :Tabularize /:\zs<CR>
+"     vmap <leader>a: :Tabularize /:\zs<CR>
+" endif
 
 " xnoremap p "_dP
 
