@@ -216,17 +216,24 @@ let macvim_skip_colorscheme=1
 noremap Q <Nop>
 noremap q <Nop>
 
-nnoremap <CR> w
-nnoremap <leader><CR> :normal o<CR>
-nnoremap <bs> ^
-
 " turbo moving
 nnoremap J  4j
 nnoremap K  4k
 nnoremap H  ^
 nnoremap L  $
+nnoremap <CR> w
+nnoremap <bs> ^
 
+" add new line
+nnoremap <leader><CR> :normal o<CR>
+
+" vim config
 noremap <leader>, :tabnew ~/.vimrc<CR>
+noremap <leader>< :source ~/.vimrc<CR>
+
+" run last command
+nnoremap <leader>. :<UP><CR>
+vnoremap <leader>. :<UP><CR>
 
 " comments
 nnoremap <leader>c :TComment<CR>
@@ -254,14 +261,16 @@ nnoremap <leader>/ :let @/=""<CR>
 cnoremap <c-j>  <down>
 cnoremap <c-k>  <up>
 
-" if exists(":Tabularize")
+
+if exists(":Tabularize")
+    vnoremap <leader>tab :Tabularize /
 "     nmap <leader>a= :Tabularize /=<CR>
 "     vmap <leader>a= :Tabularize /=<CR>
 "     nmap <leader>a\| :Tabularize /\|<CR>
 "     vmap <leader>a\| :Tabularize /\|<CR>
 "     nmap <leader>a: :Tabularize /:\zs<CR>
 "     vmap <leader>a: :Tabularize /:\zs<CR>
-" endif
+endif
 
 " xnoremap p "_dP
 
