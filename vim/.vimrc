@@ -153,8 +153,8 @@ set number                              " Show line numbers
 
 augroup cursorline                      " Highlight current line only on active window
   au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
-  au WinLeave * setlocal nocursorline nocursorcolumn
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 augroup END
 
 set report      =0                      " Always report changed lines
