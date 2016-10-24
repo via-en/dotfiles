@@ -11,7 +11,7 @@ Plug 'mhinz/vim-startify'               " Fancy start screen
 Plug 'vim-airline/vim-airline'          " Status line
 Plug 'vim-airline/vim-airline-themes'   " Themes for airline
 Plug 'eskin/tabline.vim'                " My tabline
-Plug 'eskin/cake16'                     " My color scheme
+" Plug 'eskin/cake16'                     " My color scheme
 
 " Git
 Plug 'tpope/vim-fugitive'               " Git client
@@ -36,6 +36,7 @@ Plug 'sheerun/vim-polyglot'             " A collection of language packs
 Plug 'jiangmiao/auto-pairs'             " Insert or delete brackets, parens, quotes in pair
 Plug 'tomtom/tcomment_vim'              " File-type sensible toggle comments
 Plug 'matze/vim-move'                   " Plugin to move lines and selections up and down
+Plug 'justinmk/vim-sneak'               " Motion to reach any location specified by two characters
 call plug#end()
 
 " Disable some standard plugins
@@ -53,6 +54,8 @@ let g:loaded_zipPlugin = 1
 " ------------------------------------------------------------------------------------------------------------
 " plugin specific settings
 " ------------------------------------------------------------------------------------------------------------
+
+let g:sneak#streak = 1
 
 let g:tcommentMaps = 0
 
@@ -271,6 +274,20 @@ if exists(":Tabularize")
 "     nmap <leader>a: :Tabularize /:\zs<CR>
 "     vmap <leader>a: :Tabularize /:\zs<CR>
 endif
+
+nmap f <Plug>Sneak_f
+nmap F <Plug>Sneak_F
+xmap f <Plug>Sneak_f
+xmap F <Plug>Sneak_F
+omap f <Plug>Sneak_f
+omap F <Plug>Sneak_F
+
+nmap t <Plug>Sneak_t
+nmap T <Plug>Sneak_T
+xmap t <Plug>Sneak_t
+xmap T <Plug>Sneak_T
+omap t <Plug>Sneak_t
+omap T <Plug>Sneak_T
 
 " xnoremap p "_dP
 
