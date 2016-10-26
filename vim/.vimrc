@@ -125,6 +125,7 @@ set hidden                              " Switch between buffers without having 
 set laststatus  =2                      " Always show statusline
 set display     =lastline               " Show as much as possible of the last line
 set wildmenu                            " Tab menu on command line
+set mouse=a
 
 set nrformats  -=octal                  " Disable octal number format
 
@@ -145,11 +146,12 @@ set lazyredraw                          " Only redraw when necessary
 set synmaxcol   =200                    " Only highlight the first 200 columns
 
 set splitbelow                          " Open new windows below the current window
-set splitright                          " Open new windows right of the current window
+" set splitright                          " Open new windows right of the current window
 "set winwidth    =999                   " Запрещаем вертикальное разделение
 
 set number                              " Show line numbers
 " set foldcolumn  =1
+set timeoutlen  =600                    " The time in milliseconds that is waited for a key code or mapped key sequence to complete
 
 augroup cursorline                      " Highlight current line only on active window
   au!
@@ -168,6 +170,8 @@ set visualbell                          " Disable beep
 set scrolloff   =5                      " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll  =1
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 
 set autoread                            " Reload files changed outside vim
 autocmd BufWritePre * :%s/\s\+$//e      " Trim trailing whitespace on save
@@ -227,6 +231,8 @@ nnoremap L  $
 nnoremap <CR> w
 nnoremap <bs> ^
 
+nnoremap <leader>q :q<CR>
+
 " add new line
 nnoremap <leader><CR> :normal o<CR>
 
@@ -234,9 +240,11 @@ nnoremap <leader><CR> :normal o<CR>
 noremap <leader>, :tabnew ~/.vimrc<CR>
 noremap <leader>< :source ~/.vimrc<CR>
 
+noremap <leader>b :make<CR>
+
 " run last command
-nnoremap <leader>. :<UP><CR>
-vnoremap <leader>. :<UP><CR>
+" nnoremap <leader>. :<UP><CR>
+" vnoremap <leader>. :<UP><CR>
 
 " comments
 nnoremap <leader>c :TComment<CR>
@@ -256,6 +264,12 @@ nnoremap <leader>t :YcmCompleter GetType<CR>
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
+
+nnoremap <leader>a :AV<CR>
+" nnoremap <leader>aa :A<CR>
+" nnoremap <leader>at :AT<CR>
+" nnoremap <leader>as :AS<CR>
+" nnoremap <leader>av :AV<CR>
 
 " clear search history
 nnoremap <leader>/ :let @/=""<CR>
@@ -290,4 +304,3 @@ omap t <Plug>Sneak_t
 omap T <Plug>Sneak_T
 
 " xnoremap p "_dP
-
