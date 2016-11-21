@@ -5,7 +5,7 @@ My configuration files
 ### Installation
 
 ```bash
-git clone https://github.com/eskin/dotfiles.git ~/.dotfiles
+git clone git@github.com:via-en/dotfiles.git ~/.dotfiles
 ```
 
 ### vim
