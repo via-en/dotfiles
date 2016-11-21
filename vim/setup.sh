@@ -15,7 +15,6 @@ mkdir ~/.vim/files/undo
 mkdir ~/.vim/files/session
 
 ln -sfv ~/.dotfiles/vim/.vimrc ~/.vimrc
-ln -sfv ~/.dotfiles/vim/.vim/.ycm_extra_conf.py ~/.vim/.ycm_extra_conf.py
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

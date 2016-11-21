@@ -10,8 +10,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'               " Fancy start screen
 Plug 'vim-airline/vim-airline'          " Status line
 Plug 'vim-airline/vim-airline-themes'   " Themes for airline
-Plug 'eskin/tabline.vim'                " My tabline
-" Plug 'eskin/cake16'                     " My color scheme
+Plug 'eskin/tabline.vim'                " Tabline theme
+Plug 'eskin/cake16'                     " Color scheme
 
 " Git
 Plug 'tpope/vim-fugitive'               " Git client
@@ -22,14 +22,12 @@ Plug 'mbbill/undotree'                  " Undo history visualizer
 Plug 'scrooloose/nerdtree'              " A tree explorer plugin
 
 " C++ programming
-Plug 'valloric/youcompleteme',  { 'do': './install.py --clang-completer' }
-Plug 'jeaye/color_coded',       { 'do': 'cmake . && make -j4 && make install && make clean && make clean_clang' }
+Plug 'valloric/youcompleteme', { 'do': './install.py --system-boost' }
 Plug 'ervandew/supertab'                " For youcompleteme
-Plug 'johnsyweb/vim-makeshift'          " Plugin for detecting your build system
-Plug 'nacitar/a.vim'                    " Swtich between source files and header files quickly
 
 " Other languages
 Plug 'sirver/ultisnips'                 " Ultimate solution for snippets
+Plug 'scrooloose/syntastic'             " Syntax checking hacks for vim
 Plug 'honza/vim-snippets'               " Snippets files for various programming languages
 Plug 'godlygeek/tabular'                " Text filtering and alignment
 Plug 'sheerun/vim-polyglot'             " A collection of language packs
@@ -37,6 +35,7 @@ Plug 'jiangmiao/auto-pairs'             " Insert or delete brackets, parens, quo
 Plug 'tomtom/tcomment_vim'              " File-type sensible toggle comments
 Plug 'matze/vim-move'                   " Plugin to move lines and selections up and down
 Plug 'justinmk/vim-sneak'               " Motion to reach any location specified by two characters
+Plug 'PotatoesMaster/i3-vim-syntax'     " Syntax for i3 window manager
 call plug#end()
 
 " Disable some standard plugins
@@ -61,12 +60,6 @@ let g:tcommentMaps = 0
 
 let g:startify_session_dir = '~/.vim/files/session'
 
-" Disable color_coded in diff mode
-let g:color_coded_enabled = 1
-if &diff
-    let g:color_coded_enabled = 0
-endif
-
 if has("gui_running")
   macmenu Edit.Paste key=<nop>
   noremap <D-v> "*P
@@ -74,16 +67,22 @@ if has("gui_running")
   inoremap <D-v> <C-g>u<C-r><C-o>*
 endif
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_left_alt_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_skip_empty_sections = 1
 
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_flake8_exe = '/usr/bin/python3 -m flake8'
+let g:syntastic_python_pylint_exe = '/usr/bin/python3 -m pylint'
+let g:syntastic_python_checkers=['pylint']
+" let g:syntastic_python_checkers=['flake8']
 
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -98,7 +97,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<Left>"
 let g:gitgutter_map_keys = 0
 let g:polyglot_disabled = ['c++11', 'c/c++']
 let g:plug_window = 'topleft new | res'
-" let g:color_coded_enabled = 0
 
 let g:move_key_modifier = 'C' " matze/vim-move
 
@@ -240,7 +238,7 @@ nnoremap <leader><CR> :normal o<CR>
 noremap <leader>, :tabnew ~/.vimrc<CR>
 noremap <leader>< :source ~/.vimrc<CR>
 
-noremap <leader>b :make<CR>
+noremap <leader>b :!clear && python3 %<CR>
 
 " run last command
 " nnoremap <leader>. :<UP><CR>
@@ -264,12 +262,6 @@ nnoremap <leader>t :YcmCompleter GetType<CR>
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
-
-nnoremap <leader>a :AV<CR>
-" nnoremap <leader>aa :A<CR>
-" nnoremap <leader>at :AT<CR>
-" nnoremap <leader>as :AS<CR>
-" nnoremap <leader>av :AV<CR>
 
 " clear search history
 nnoremap <leader>/ :let @/=""<CR>
